@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collectors Box Cards - Premium Collectibles</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 100%);
+      color: #e0e0e0;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Header & Navigation */
+    header {
+      background: linear-gradient(90deg, #000 0%, #1a1a2e 100%);
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 2px solid #ffd700;
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: #e0e0e0;
+      text-decoration: none;
+      margin-left: 30px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      position: relative;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #ffd700;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 120px 20px 80px;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 215, 0, 0.05) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -50%;
+      left: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 8s ease-in-out infinite reverse;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 56px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: slideDown 0.8s ease-out;
+    }
+
+    .hero .subtitle {
+      font-size: 20px;
+      color: #a0a0a0;
+      margin-bottom: 30px;
+      animation: slideUp 0.8s ease-out 0.2s both;
+    }
+
+    .hero .categories-badge {
+      display: inline-flex;
+      gap: 15px;
+      margin-bottom: 40px;
+      animation: slideUp 0.8s ease-out 0.4s both;
+    }
+
+    .badge {
+      background: rgba(255, 215, 0, 0.15);
+      border: 1px solid #ffd700;
+      color: #ffd700;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+      color: #000;
+      padding: 14px 35px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
+      animation: slideUp 0.8s ease-out 0.6s both;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(255, 215, 0, 0.5);
+    }
+
+    .btn.secondary {
+      background: transparent;
+      border: 2px solid #ffd700;
+      color: #ffd700;
+      margin-left: 15px;
+    }
+
+    .btn.secondary:hover {
+      background: rgba(255, 215, 0, 0.1);
+    }
+
+    /* Animations */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(30px); }
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    /* Sections */
+    .section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section h2 {
+      font-size: 40px;
+      font-weight: 700;
+      margin-bottom: 50px;
+      text-align: center;
+      background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #b0b0b0;
+      margin-bottom: 20px;
+    }
+
+    /* Cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .card {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      padding: 35px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 215, 0, 0.2);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .card:hover {
+      border-color: #ffd700;
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-icon {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 15px;
+      color: #ffd700;
+    }
+
+    .card p {
+      color: #a0a0a0;
+      font-size: 14px;
+    }
+
+    /* Features Section */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 50px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 15px;
+      background: rgba(255, 215, 0, 0.05);
+      border-left: 3px solid #ffd700;
+      border-radius: 5px;
+    }
+
+    .feature-item span {
+      font-size: 24px;
+    }
+
+    .feature-item p {
+      margin: 0;
+      font-weight: 500;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      border-radius: 12px;
+      padding: 50px;
+      text-align: center;
+    }
+
+    .contact-section h3 {
+      color: #ffd700;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .contact-info {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 20px;
+      background: rgba(255, 215, 0, 0.1);
+      border-radius: 8px;
+      border: 1px solid rgba(255, 215, 0, 0.2);
+    }
+
+    .contact-item span {
+      color: #ffd700;
+      font-weight: bold;
+    }
+
+    /* Footer */
+    footer {
+      padding: 30px 20px;
+      background: #000;
+      text-align: center;
+      font-size: 13px;
+      color: #666;
+      border-top: 1px solid rgba(255, 215, 0, 0.2);
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav a {
+        margin-left: 15px;
+        font-size: 14px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero .subtitle {
+        font-size: 16px;
+      }
+
+      .section h2 {
+        font-size: 28px;
+      }
+
+      .btn.secondary {
+        display: block;
+        margin-top: 15px;
+        margin-left: 0;
+      }
+
+      .contact-info {
+        flex-direction: column;
+      }
+
+      .contact-section {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-content">
+    <div class="logo">🎴 Collectors Box</div>
+    <nav>
+      <a href="#categories">Categories</a>
+      <a href="#why-us">Why Us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-content">
+    <h1>Premium Card Collections</h1>
+    <p class="subtitle">Discover Elite Sports Cards, Pokémon Rarities & Anime Collectibles</p>
+    
+    <div class="categories-badge">
+      <span class="badge">🏈 Sports</span>
+      <span class="badge">🎮 Pokémon</span>
+      <span class="badge">✨ Anime</span>
+    </div>
+
+    <div>
+      <a class="btn" href="#contact">Get Started</a>
+      <a class="btn secondary" href="#categories">Learn More</a>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>About Collectors Box</h2>
+  <p style="text-align: center; max-width: 700px; margin: 0 auto 20px;">
+    We specialize in high-quality sports cards, Pokémon, and anime collectibles. 
+    Focused on authenticity, value, and building elite collections for serious collectors who demand the best.
+  </p>
+  <p style="text-align: center; max-width: 700px; margin: 0 auto; color: #888;">
+    With years of expertise in the collectibles market, we source only premium items that meet our rigorous quality standards.
+  </p>
+</div>
+
+<div class="section" id="categories">
+  <h2>Our Categories</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">🏈</div>
+      <h3>Sports Cards</h3>
+      <p>Top rookies, graded PSA/BGS cards, and rare inserts from basketball, football, baseball, and hockey.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🎮</div>
+      <h3>Pokémon Cards</h3>
+      <p>Vintage holos, modern hits, first editions, and hard-to-find sealed booster boxes.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">✨</div>
+      <h3>Anime Cards</h3>
+      <p>Unique Japanese and English anime collectibles for true fans and serious investors.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="why-us">
+  <h2>Why Choose Collectors Box</h2>
+  <div class="features">
+    <div class="feature-item">
+      <span>✅</span>
+      <p><strong>100% Authentic</strong> - Every item verified and certified</p>
+    </div>
+    <div class="feature-item">
+      <span>💎</span>
+      <p><strong>Premium Quality</strong> - Only graded & top-tier items</p>
+    </div>
+    <div class="feature-item">
+      <span>🎯</span>
+      <p><strong>Collector Focused</strong> - Built by collectors, for collectors</p>
+    </div>
+    <div class="feature-item">
+      <span>🔍</span>
+      <p><strong>Rare Finds</strong> - Exclusive access to hard-to-find items</p>
+    </div>
+    <div class="feature-item">
+      <span>🛡️</span>
+      <p><strong>Secure Transactions</strong> - Protected and insured shipping</p>
+    </div>
+    <div class="feature-item">
+      <span>📈</span>
+      <p><strong>Investment Grade</strong> - Value-focused collections</p>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="contact">
+  <h2>Get In Touch</h2>
+  <div class="contact-section">
+    <h3>Ready to Start Your Collection?</h3>
+    <div class="contact-info">
+      <div class="contact-item">
+        <span>📞</span>
+        <span>813-904-3031</span>
+      </div>
+      <div class="contact-item">
+        <span>💬</span>
+        <span>Text or Call Anytime</span>
+      </div>
+    </div>
+    <a class="btn" href="tel:813-904-3031">Call Us Now</a>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Collectors Box Cards. All rights reserved.</p>
+  <p>Premium collectibles for serious collectors.</p>
+</footer>
+
+</body>
+</html>
