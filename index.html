@@ -22,7 +22,7 @@
     /* Header & Navigation */
     header {
       background: linear-gradient(90deg, #000 0%, #1a1a2e 100%);
-      padding: 20px 0;
+      padding: 15px 0;
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -40,13 +40,38 @@
     }
 
     .logo {
-      font-size: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 18px;
       font-weight: bold;
-      background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: #ffd700;
       letter-spacing: 1px;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    .logo img {
+      height: 50px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .logo-text {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .logo img {
+        height: 40px;
+      }
+      .logo-text {
+        display: inline;
+      }
     }
 
     nav a {
@@ -140,6 +165,8 @@
       gap: 15px;
       margin-bottom: 40px;
       animation: slideUp 0.8s ease-out 0.4s both;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .badge {
@@ -425,7 +452,10 @@
 
 <header>
   <div class="header-content">
-    <div class="logo">🎴 Collectors Box</div>
+    <a href="#" class="logo">
+      <img src="logo.png" alt="Collectors Box Cards Logo">
+      <span class="logo-text">Collectors Box</span>
+    </a>
     <nav>
       <a href="#categories">Categories</a>
       <a href="#why-us">Why Us</a>
